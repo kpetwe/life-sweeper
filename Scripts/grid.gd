@@ -183,7 +183,7 @@ func _input(event: InputEvent):
 		on_first_click(cell)
 		return 
 
-	if event.button_index == 1:
+	if event.button_index == 1 && !flagged_cells.has(cell):
 		grid_update(cell, true)
 	elif event.button_index == 2:
 		flag_update(cell)
@@ -449,7 +449,11 @@ func get_neighborhood(cntr:Vector2i, include_self:bool, wrap:bool):
 	for i in range(-1, 2):
 		for j in range(-1, 2):
 			var cell = cntr + Vector2i(i, j)
+			# if i am including the center cell or i am not including the
+			# center cell and this cell is a valid neighbor
 			if (include_self || (!include_self && (i != 0 || j != 0))):
+				# either cell is in bounds (if-else statements not entered
+				# or the cell is out of bounds but we're including wrapped cells
 				if (in_bounds(cell) || wrap):
 					if cell.x < -rows/2:
 						cell.x = rows/2 - 1 + rows % 2
