@@ -56,6 +56,7 @@ func _ready():
 	clear()
 	init_board()
 	#init_mines()
+	#display_text(str(mines) + "/" + str(mines) + "\nMINE\nSWEEPER", -1)
 	display_text(default_text(), -1)
 
 func check_mines():
@@ -138,7 +139,6 @@ var first_click = true
 func on_first_click(fcell:Vector2i):
 	first_click = false
 	init_mines(fcell)
-	display_text(default_text(), -1)
 	cell_update(fcell)
 
 
@@ -177,6 +177,10 @@ func _input(event: InputEvent):
 		reset_flags()
 	
 	if !in_bounds(cell) :
+		return
+		
+	if (event.button_index == 1 || event.button_index == 2) && first_click:
+		on_first_click(cell)
 		return 
 
 	if event.button_index == 1:
@@ -228,6 +232,9 @@ func reset_flags():
 @export var display: RichTextLabel
 
 func flag_difference():
+	if first_click:
+		return "\t" + str(mines) + "/" + str(mines) + "\n"
+	
 	return "\t" + str(mine_cells.size() - flagged_cells.size()) + "/" + str(mine_cells.size()) + "\n"
 
 func default_text():
@@ -246,12 +253,8 @@ func display_text(txt: String, delay:int):
 	@param bool safe: True if it's safe to perform GOL update 
 """
 func grid_update(cell: Vector2i, safe: bool):
-	if first_click:
-		on_first_click(cell)
-		return
-	
 	# Unsafe tile hit
-	elif mine_cells.has(cell):
+	if mine_cells.has(cell):
 		display_text(flag_difference() + "GAME\nLOST", -1)
 		game_over = true
 		reveal_mines(mine_cells)

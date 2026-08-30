@@ -67,7 +67,7 @@ z_index = 1
 position = Vector2(-88, 0)
 tile_set = SubResource("TileSet_mngvc")
 script = ExtResource("2_0xm2m")
-mine_spin_box = NodePath("../OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/LeftVBoxContainer/BoardSetup/VBoxContainer/Mines/CheckButton")
+mine_spin_box = NodePath("../OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/LeftVBoxContainer/BoardSetup/VBoxContainer/HBoxContainer3/CheckButton")
 display = NodePath("../ScreenButtonsGUI/ScreenButtons/VBoxContainer/Display")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1984001984]
@@ -210,8 +210,8 @@ offset_transform_position = Vector2(0, 14)
 offset_transform_visual_only = false
 
 [node name="BoardSetup" type="ColorRect" parent="OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/LeftVBoxContainer" unique_id=1150376130]
-custom_minimum_size = Vector2(0, 135)
-custom_maximum_size = Vector2(183, -1)
+custom_minimum_size = Vector2(0, 140)
+custom_maximum_size = Vector2(188, -1)
 layout_mode = 2
 offset_transform_enabled = true
 offset_transform_position = Vector2(20, 0)
@@ -225,7 +225,7 @@ offset_left = 8.0
 offset_right = 208.0
 offset_bottom = 137.0
 offset_transform_enabled = true
-offset_transform_position = Vector2(0, 6)
+offset_transform_position = Vector2(0, 3)
 offset_transform_visual_only = false
 
 [node name="RichTextLabel" type="RichTextLabel" parent="OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/LeftVBoxContainer/BoardSetup/VBoxContainer" unique_id=72728479]
@@ -236,30 +236,25 @@ theme_override_colors/default_color = Color(0.15294118, 0.14117648, 0.1254902, 1
 theme_override_font_sizes/normal_font_size = 20
 text = "	Board Setup:"
 
-[node name="Rows" type="RichTextLabel" parent="OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/LeftVBoxContainer/BoardSetup/VBoxContainer" unique_id=1267657338]
+[node name="HBoxContainer" type="HBoxContainer" parent="OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/LeftVBoxContainer/BoardSetup/VBoxContainer" unique_id=1281934889]
+custom_maximum_size = Vector2(175, -1)
+layout_mode = 2
+
+[node name="Rows" type="RichTextLabel" parent="OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/LeftVBoxContainer/BoardSetup/VBoxContainer/HBoxContainer" unique_id=1267657338]
 z_index = 2
-custom_minimum_size = Vector2(200, 25)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.28
-offset_transform_enabled = true
-offset_transform_position = Vector2(10, 0)
+offset_transform_position = Vector2(4, 0)
 offset_transform_visual_only = false
 mouse_filter = 1
 theme_override_colors/default_color = Color(0.15294118, 0.14117648, 0.1254902, 1)
-text = "Rows :"
+text = "Rows"
 
-[node name="CheckButton2" type="SpinBox" parent="OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/LeftVBoxContainer/BoardSetup/VBoxContainer/Rows" unique_id=1901980194]
-z_index = 5
-custom_minimum_size = Vector2(0, 25)
-custom_maximum_size = Vector2(50, -1)
-layout_mode = 0
-offset_left = 72.0
-offset_top = -3.0
-offset_right = 122.0
-offset_bottom = 28.0
-offset_transform_enabled = true
-offset_transform_position = Vector2(8, 0)
+[node name="CheckButton2" type="SpinBox" parent="OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/LeftVBoxContainer/BoardSetup/VBoxContainer/HBoxContainer" unique_id=1901980194]
+z_index = 10
+layout_mode = 2
+offset_transform_position = Vector2(1, 0)
 offset_transform_visual_only = false
 theme_override_constants/buttons_vertical_separation = -32
 theme_override_constants/buttons_width = 2
@@ -270,28 +265,25 @@ rounded = true
 custom_arrow_step = 1.0
 custom_arrow_round = true
 
-[node name="Cols" type="RichTextLabel" parent="OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/LeftVBoxContainer/BoardSetup/VBoxContainer" unique_id=2076550018]
+[node name="HBoxContainer2" type="HBoxContainer" parent="OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/LeftVBoxContainer/BoardSetup/VBoxContainer" unique_id=1508526743]
+custom_maximum_size = Vector2(175, -1)
+layout_mode = 2
+
+[node name="Cols" type="RichTextLabel" parent="OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/LeftVBoxContainer/BoardSetup/VBoxContainer/HBoxContainer2" unique_id=2076550018]
 z_index = 2
-custom_minimum_size = Vector2(200, 25)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.28
-offset_transform_enabled = true
-offset_transform_position = Vector2(10, 0)
+offset_transform_position = Vector2(4, 0)
+offset_transform_visual_only = false
 mouse_filter = 1
 theme_override_colors/default_color = Color(0.15294118, 0.14117648, 0.1254902, 1)
-text = "Columns :"
+text = "Columns"
 
-[node name="CheckButton" type="SpinBox" parent="OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/LeftVBoxContainer/BoardSetup/VBoxContainer/Cols" unique_id=1522918623]
-z_index = 5
-custom_maximum_size = Vector2(50, -1)
-layout_mode = 0
-offset_left = 72.0
-offset_top = -3.0
-offset_right = 122.0
-offset_bottom = 28.0
-offset_transform_enabled = true
-offset_transform_position = Vector2(8, 0)
+[node name="CheckButton" type="SpinBox" parent="OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/LeftVBoxContainer/BoardSetup/VBoxContainer/HBoxContainer2" unique_id=1522918623]
+z_index = 10
+layout_mode = 2
+offset_transform_position = Vector2(1, 0)
 offset_transform_visual_only = false
 theme = ExtResource("6_7mycd")
 theme_override_constants/buttons_vertical_separation = -15
@@ -302,28 +294,24 @@ max_value = 24.0
 value = 8.0
 alignment = 3
 
-[node name="Mines" type="RichTextLabel" parent="OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/LeftVBoxContainer/BoardSetup/VBoxContainer" unique_id=492982995]
+[node name="HBoxContainer3" type="HBoxContainer" parent="OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/LeftVBoxContainer/BoardSetup/VBoxContainer" unique_id=81736831]
+custom_maximum_size = Vector2(175, -1)
+layout_mode = 2
+
+[node name="Mines" type="RichTextLabel" parent="OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/LeftVBoxContainer/BoardSetup/VBoxContainer/HBoxContainer3" unique_id=492982995]
 z_index = 2
-custom_minimum_size = Vector2(200, 25)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.28
-offset_transform_enabled = true
-offset_transform_position = Vector2(10, 0)
+offset_transform_position = Vector2(4, 0)
+offset_transform_visual_only = false
 mouse_filter = 1
 theme_override_colors/default_color = Color(0.15294118, 0.14117648, 0.1254902, 1)
-text = "Mines :"
+text = "Mines"
 
-[node name="CheckButton" type="SpinBox" parent="OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/LeftVBoxContainer/BoardSetup/VBoxContainer/Mines" unique_id=1040010278]
-z_index = 5
-custom_minimum_size = Vector2(0, 25)
-custom_maximum_size = Vector2(50, -1)
-layout_mode = 0
-offset_left = 72.0
-offset_top = -3.0
-offset_right = 122.0
-offset_bottom = 28.0
-offset_transform_enabled = true
+[node name="CheckButton" type="SpinBox" parent="OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/LeftVBoxContainer/BoardSetup/VBoxContainer/HBoxContainer3" unique_id=1040010278]
+z_index = 10
+layout_mode = 2
 offset_transform_position = Vector2(8, 0)
 offset_transform_visual_only = false
 theme_override_constants/buttons_vertical_separation = -32
@@ -339,7 +327,7 @@ custom_arrow_round = true
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 offset_transform_enabled = true
-offset_transform_position = Vector2(14, 6)
+offset_transform_position = Vector2(14, 4)
 mouse_filter = 1
 text = "Cellular Automaton Rules:"
 
@@ -1080,9 +1068,9 @@ text = "(1/2)"
 [connection signal="toggled" from="ScreenButtonsGUI/ScreenButtons/VBoxContainer/GOLButton" to="GridLayer" method="set_gol"]
 [connection signal="pressed" from="ScreenButtonsGUI/ScreenButtons/VBoxContainer/OptionMenuButton" to="ScreenButtonsGUI/ScreenButtons/VBoxContainer/ExitButton" method="options_pressed"]
 [connection signal="pressed" from="ScreenButtonsGUI/ScreenButtons/VBoxContainer/ExitButton" to="ScreenButtonsGUI/ScreenButtons/VBoxContainer/ExitButton" method="quit_pressed"]
-[connection signal="value_changed" from="OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/LeftVBoxContainer/BoardSetup/VBoxContainer/Rows/CheckButton2" to="GridLayer" method="set_rows"]
-[connection signal="value_changed" from="OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/LeftVBoxContainer/BoardSetup/VBoxContainer/Cols/CheckButton" to="GridLayer" method="set_cols"]
-[connection signal="value_changed" from="OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/LeftVBoxContainer/BoardSetup/VBoxContainer/Mines/CheckButton" to="GridLayer" method="set_mines"]
+[connection signal="value_changed" from="OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/LeftVBoxContainer/BoardSetup/VBoxContainer/HBoxContainer/CheckButton2" to="GridLayer" method="set_rows"]
+[connection signal="value_changed" from="OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/LeftVBoxContainer/BoardSetup/VBoxContainer/HBoxContainer2/CheckButton" to="GridLayer" method="set_cols"]
+[connection signal="value_changed" from="OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/LeftVBoxContainer/BoardSetup/VBoxContainer/HBoxContainer3/CheckButton" to="GridLayer" method="set_mines"]
 [connection signal="toggled" from="OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/LeftVBoxContainer/CellularAutomaton/Alive/ColorRect/GridContainer/Checkboxes/A0" to="GridLayer" method="set_gol_array" binds= ["A0"]]
 [connection signal="toggled" from="OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/LeftVBoxContainer/CellularAutomaton/Alive/ColorRect/GridContainer/Checkboxes/A1" to="GridLayer" method="set_gol_array" binds= ["A1"]]
 [connection signal="toggled" from="OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/LeftVBoxContainer/CellularAutomaton/Alive/ColorRect/GridContainer/Checkboxes/A2" to="GridLayer" method="set_gol_array" binds= ["A2"]]
