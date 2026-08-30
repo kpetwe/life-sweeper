@@ -61,14 +61,15 @@ region = Rect2(4, 52, 16, 16)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1390186764]
 
-[node name="GridLayer" type="TileMapLayer" parent="." unique_id=2104647117 node_paths=PackedStringArray("mine_spin_box", "display")]
+[node name="GridLayer" type="TileMapLayer" parent="." unique_id=2104647117 node_paths=PackedStringArray("mine_spin_box", "main_display", "mine_display")]
 visible = false
 z_index = 1
 position = Vector2(-88, 0)
 tile_set = SubResource("TileSet_mngvc")
 script = ExtResource("2_0xm2m")
 mine_spin_box = NodePath("../OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/LeftVBoxContainer/BoardSetup/VBoxContainer/HBoxContainer3/CheckButton")
-display = NodePath("../ScreenButtonsGUI/ScreenButtons/VBoxContainer/Display")
+main_display = NodePath("../ScreenButtonsGUI/ScreenButtons/VBoxContainer/TextDisplay")
+mine_display = NodePath("../ScreenButtonsGUI/ScreenButtons/VBoxContainer/HBoxContainer/MineDisplay")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1984001984]
 z_index = -1
@@ -109,12 +110,30 @@ offset_bottom = 231.0
 [node name="VBoxContainer" type="VBoxContainer" parent="ScreenButtonsGUI/ScreenButtons" unique_id=640660265]
 layout_mode = 2
 
-[node name="Display" type="RichTextLabel" parent="ScreenButtonsGUI/ScreenButtons/VBoxContainer" unique_id=1410616805]
-custom_minimum_size = Vector2(0, 75)
+[node name="HBoxContainer" type="HBoxContainer" parent="ScreenButtonsGUI/ScreenButtons/VBoxContainer" unique_id=1082564860]
 layout_mode = 2
+
+[node name="TileFlag" type="Sprite2D" parent="ScreenButtonsGUI/ScreenButtons/VBoxContainer/HBoxContainer" unique_id=300592121]
+position = Vector2(11, 12)
+texture = SubResource("AtlasTexture_ycdy4")
+
+[node name="MineDisplay" type="RichTextLabel" parent="ScreenButtonsGUI/ScreenButtons/VBoxContainer/HBoxContainer" unique_id=679273201]
+custom_minimum_size = Vector2(75, 25)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(24, 0)
+offset_transform_visual_only = false
 mouse_filter = 1
-text = "	200/200
-MINE
+text = "200/200"
+
+[node name="TextDisplay" type="RichTextLabel" parent="ScreenButtonsGUI/ScreenButtons/VBoxContainer" unique_id=1410616805]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, -4)
+offset_transform_visual_only = false
+mouse_filter = 1
+text = "MINE
 SWEEPER"
 horizontal_alignment = 1
 
@@ -157,10 +176,6 @@ page2 = NodePath("../../../../OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxConta
 page1 = NodePath("../../../../OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/RightVboxContainer/Howtoplay")
 numberbutton = NodePath("../../../../OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/RightVboxContainer/Button")
 help_icons = [NodePath("../../../../OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/RightVboxContainer/Help"), NodePath("../../../../OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/RightVboxContainer/HelpCopy(2)"), NodePath("../../../../OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/RightVboxContainer/HelpCopy(3)"), NodePath("../../../../OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/RightVboxContainer/HelpCopy(4)"), NodePath("../../../../OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/RightVboxContainer/HelpCopy(5)"), NodePath("../../../../OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/RightVboxContainer/HelpCopy(6)"), NodePath("../../../../OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/RightVboxContainer/HelpCopy")]
-
-[node name="TileFlag" type="Sprite2D" parent="ScreenButtonsGUI/ScreenButtons/VBoxContainer" unique_id=300592121]
-position = Vector2(11, 12)
-texture = SubResource("AtlasTexture_ycdy4")
 
 [node name="OptionsMenuGUI" type="Node" parent="." unique_id=1092258733]
 

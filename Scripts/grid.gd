@@ -65,7 +65,7 @@ func check_mines():
 		mines = 10
 		mine_spin_box.value = mines
 		reset()
-		display_text(flag_difference() + "ERROR:\nMINES > " + str((rows-1)*(cols-1)), 1)	
+		display_text("ERROR:\nMINES > " + str((rows-1)*(cols-1)), 1)	
 
 
 """
@@ -87,16 +87,16 @@ signal trigger_reset
 func set_gol(toggle:bool):
 	gol_on = toggle
 	if gol_on:
-		display_text(flag_difference() + "GOL ON", 1)
+		display_text("GOL ON", 1)
 	else:
-		display_text(flag_difference() + "GOL OFF", 1)
+		display_text("GOL OFF", 1)
 	
 func set_view_mines(toggle:bool):
 	view_mines = toggle
 	if view_mines:
-		display_text(flag_difference() + "MINE VIEW\nON", 1)
+		display_text("MINE VIEW\nON", 1)
 	else:
-		display_text(flag_difference() + "MINE VIEW\nOFF", 1)
+		display_text("MINE VIEW\nOFF", 1)
 	trigger_reset.emit()
 	
 func set_rows(r):
@@ -211,7 +211,7 @@ func flag_update(cell: Vector2i):
 		# a little redundant but doesn't print "OUT OF FLAGS" otherwise
 		display_text(default_text(), -1)	
 	elif flagged_cells.size() >= mine_cells.size():
-		display_text(flag_difference() + "OUT OF\n FLAGS", 1)
+		display_text("OUT OF\n FLAGS", 1)
 
 """
 	Recalls all flags if button is clicked
@@ -229,19 +229,21 @@ func reset_flags():
 	Display Text
 """
 
-@export var display: RichTextLabel
+@export var main_display: RichTextLabel
+@export var mine_display: RichTextLabel
 
 func flag_difference():
 	if first_click || game_over:
-		return "\t" + str(mines) + "/" + str(mines) + "\n"
+		return str(mines) + "/" + str(mines) + "\n"
 	
-	return "\t" + str(mine_cells.size() - flagged_cells.size()) + "/" + str(mine_cells.size()) + "\n"
+	return str(mine_cells.size() - flagged_cells.size()) + "/" + str(mine_cells.size()) + "\n"
 
 func default_text():
-	return flag_difference() + "MINE\nSWEEPER"
+	return "MINE\nSWEEPER"
 
-func display_text(txt: String, delay:int):
-	display.text = txt
+func display_text(disptxt: String, delay:int):
+	main_display.text = disptxt
+	mine_display.text = flag_difference()
 	if delay > 0:
 		await get_tree().create_timer(delay).timeout
 		display_text(default_text(), -1)
@@ -256,7 +258,7 @@ func grid_update(cell: Vector2i, safe: bool):
 	# Unsafe tile hit
 	if mine_cells.has(cell):
 		game_over = true
-		display_text(flag_difference() + "GAME\nLOST", -1)
+		display_text("GAME\nLOST", -1)
 		reveal_mines(mine_cells)
 		set_tile_cell(cell, "RM")
 		return
@@ -278,7 +280,7 @@ func grid_update(cell: Vector2i, safe: bool):
 	# All safe tiles revealed
 	if game_won():
 		game_over = true
-		display_text(flag_difference() + "GAME\nWON", -1)
+		display_text("GAME\nWON", -1)
 		reveal_mines(mine_cells)
 
 """

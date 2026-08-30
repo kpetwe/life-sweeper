@@ -18,8 +18,8 @@ func set_default():
 	get_tree().reload_current_scene()
 
 func quit_pressed():
-	get_tree().quit()
 	JavaScriptBridge.eval("window.close()")
+	get_tree().quit()
 
 
 func toggle_visibility(object):
