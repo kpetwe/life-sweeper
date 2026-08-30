@@ -19,6 +19,8 @@ func set_default():
 
 func quit_pressed():
 	get_tree().quit()
+	JavaScriptBridge.eval("window.close()")
+
 
 func toggle_visibility(object):
 	object.visible = !object.visible
