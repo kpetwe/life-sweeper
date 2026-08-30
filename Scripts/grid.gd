@@ -232,7 +232,7 @@ func reset_flags():
 @export var display: RichTextLabel
 
 func flag_difference():
-	if first_click:
+	if first_click || game_over:
 		return "\t" + str(mines) + "/" + str(mines) + "\n"
 	
 	return "\t" + str(mine_cells.size() - flagged_cells.size()) + "/" + str(mine_cells.size()) + "\n"
@@ -255,8 +255,8 @@ func display_text(txt: String, delay:int):
 func grid_update(cell: Vector2i, safe: bool):
 	# Unsafe tile hit
 	if mine_cells.has(cell):
-		display_text(flag_difference() + "GAME\nLOST", -1)
 		game_over = true
+		display_text(flag_difference() + "GAME\nLOST", -1)
 		reveal_mines(mine_cells)
 		set_tile_cell(cell, "RM")
 		return
@@ -277,8 +277,8 @@ func grid_update(cell: Vector2i, safe: bool):
 	
 	# All safe tiles revealed
 	if game_won():
-		display_text(flag_difference() + "GAME\nWON", -1)
 		game_over = true
+		display_text(flag_difference() + "GAME\nWON", -1)
 		reveal_mines(mine_cells)
 
 """
