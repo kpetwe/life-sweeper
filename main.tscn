@@ -144,7 +144,7 @@ button_pressed = true
 text = "OPTIONS 
 MENU"
 
-[node name="ExitButton" type="Button" parent="ScreenButtonsGUI/ScreenButtons/VBoxContainer" unique_id=280695840 node_paths=PackedStringArray("option_screen", "board", "page2", "page1", "numberbutton")]
+[node name="ExitButton" type="Button" parent="ScreenButtonsGUI/ScreenButtons/VBoxContainer" unique_id=280695840 node_paths=PackedStringArray("option_screen", "board", "page2", "page1", "numberbutton", "help_icons")]
 custom_minimum_size = Vector2(50, 75)
 layout_mode = 2
 theme = ExtResource("4_lquwl")
@@ -153,9 +153,10 @@ text = "QUIT
 script = ExtResource("4_1bvp3")
 option_screen = NodePath("../../../../OptionsMenuGUI/OptionsMenu")
 board = NodePath("../../../../GridLayer")
-page2 = NodePath("../../../../OptionsMenuGUI/MarginContainer")
+page2 = NodePath("../../../../OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/RightVboxContainer/about")
 page1 = NodePath("../../../../OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/RightVboxContainer/Howtoplay")
-numberbutton = NodePath("../../../../OptionsMenuGUI/Button")
+numberbutton = NodePath("../../../../OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/RightVboxContainer/Button")
+help_icons = [NodePath("../../../../OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/RightVboxContainer/Help"), NodePath("../../../../OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/RightVboxContainer/HelpCopy(2)"), NodePath("../../../../OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/RightVboxContainer/HelpCopy(3)"), NodePath("../../../../OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/RightVboxContainer/HelpCopy(4)"), NodePath("../../../../OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/RightVboxContainer/HelpCopy(5)"), NodePath("../../../../OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/RightVboxContainer/HelpCopy(6)"), NodePath("../../../../OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/RightVboxContainer/HelpCopy")]
 
 [node name="TileFlag" type="Sprite2D" parent="ScreenButtonsGUI/ScreenButtons/VBoxContainer" unique_id=300592121]
 position = Vector2(11, 12)
@@ -955,6 +956,71 @@ theme_override_colors/default_color = Color(0.15294118, 0.14117648, 0.1254902, 1
 theme_override_font_sizes/normal_font_size = 8
 text = "Don't explode"
 
+[node name="about" type="ColorRect" parent="OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/RightVboxContainer" unique_id=1357749530]
+visible = false
+z_index = 13
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 25)
+offset_transform_visual_only = false
+mouse_filter = 1
+color = Color(0.50980395, 0.4745098, 0.4, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/RightVboxContainer/about" unique_id=1319384675]
+layout_mode = 0
+offset_left = 6.0
+offset_right = 254.0
+offset_bottom = 298.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/RightVboxContainer/about/VBoxContainer" unique_id=1244638734]
+custom_minimum_size = Vector2(16, 30)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 8)
+offset_transform_visual_only = false
+mouse_filter = 1
+theme_override_colors/default_color = Color(0.14901961, 0.13725491, 0.12156863, 1)
+theme_override_font_sizes/normal_font_size = 16
+text = "ABOUT"
+horizontal_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/RightVboxContainer/about/VBoxContainer" unique_id=1757542527]
+custom_minimum_size = Vector2(16, 254)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(4, 0)
+offset_transform_visual_only = false
+mouse_filter = 1
+theme_override_colors/default_color = Color(0.14901961, 0.13725491, 0.12156863, 1)
+theme_override_font_sizes/normal_font_size = 8
+text = "Published in 1970, John Conway's Game of Life is a cellular automaton model simulated by the following rules: Consider an infinite 2x2 grid (or in our case, a finite, wrapping grid) that contains a random population of \"living cells.\"
+
+	(1) If a living cell has less than 2 living neighbors (ie. of the 8
+	cells surrounding it), then it \"dies\" due to isolation.
+
+	(2) If a living cell has more than 4 living neighbors, then it 
+	\"dies\" due to overpopulation.
+
+	(3) If an empty cell has exactly 3 living neighbors, then it 
+	becomes \"alive\" due to reproduction.
+
+This minesweeper game allows for the player to bring the mines to life using Conway's or a similar Life-like model. With each tile dug, the next generation of mines are created. Note that the \"neighbors\" listed by the safe tiles do not account for the wrapping of the grid.
+
+Thank you for playing."
+
+[node name="Button" type="Button" parent="OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/RightVboxContainer" unique_id=548867065]
+z_index = 90
+custom_minimum_size = Vector2(10, 10)
+custom_maximum_size = Vector2(30, 20)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(233, 2)
+offset_transform_visual_only = false
+theme = ExtResource("4_lquwl")
+theme_override_font_sizes/font_size = 12
+text = "(1/2)"
+
 [node name="Help" type="Sprite2D" parent="OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/RightVboxContainer" unique_id=515778186]
 z_index = 10
 position = Vector2(34, 135)
@@ -999,71 +1065,6 @@ offset_top = -105.0
 offset_right = 153.0
 offset_bottom = 195.0
 
-[node name="ColorRect" type="ColorRect" parent="OptionsMenuGUI/MarginContainer" unique_id=1357749530]
-z_index = 13
-layout_mode = 2
-mouse_filter = 1
-color = Color(0.50980395, 0.4745098, 0.4, 1)
-
-[node name="VBoxContainer" type="VBoxContainer" parent="OptionsMenuGUI/MarginContainer/ColorRect" unique_id=1319384675]
-layout_mode = 0
-offset_left = 6.0
-offset_right = 254.0
-offset_bottom = 298.0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="OptionsMenuGUI/MarginContainer/ColorRect/VBoxContainer" unique_id=1244638734]
-custom_minimum_size = Vector2(16, 30)
-layout_mode = 2
-offset_transform_enabled = true
-offset_transform_position = Vector2(0, 8)
-offset_transform_visual_only = false
-mouse_filter = 1
-theme_override_colors/default_color = Color(0.14901961, 0.13725491, 0.12156863, 1)
-theme_override_font_sizes/normal_font_size = 16
-text = "ABOUT"
-horizontal_alignment = 1
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="OptionsMenuGUI/MarginContainer/ColorRect/VBoxContainer" unique_id=1757542527]
-custom_minimum_size = Vector2(16, 254)
-layout_mode = 2
-offset_transform_enabled = true
-offset_transform_position = Vector2(4, 0)
-offset_transform_visual_only = false
-mouse_filter = 1
-theme_override_colors/default_color = Color(0.14901961, 0.13725491, 0.12156863, 1)
-theme_override_font_sizes/normal_font_size = 8
-text = "Published in 1970, John Conway's Game of Life is a cellular automaton model simulated by the following rules: Consider an infinite 2x2 grid (or in our case, a finite, wrapping grid) that contains a random population of \"living cells.\"
-
-	(1) If a living cell has less than 2 living neighbors (ie. of the 8
-	cells surrounding it), then it \"dies\" due to isolation.
-
-	(2) If a living cell has more than 4 living neighbors, then it 
-	\"dies\" due to overpopulation.
-
-	(3) If an empty cell has exactly 3 living neighbors, then it 
-	becomes \"alive\" due to reproduction.
-
-This minesweeper game allows for the player to bring the mines to life using Conway's or a similar Life-like model. With each tile dug, the next generation of mines are created. Note that the \"neighbors\" listed by the safe tiles do not account for the wrapping of the grid.
-
-Thank you for playing."
-
-[node name="Button" type="Button" parent="OptionsMenuGUI" unique_id=548867065]
-z_index = 27
-custom_minimum_size = Vector2(10, 10)
-anchors_preset = -1
-anchor_left = 0.05
-anchor_top = 0.126
-anchor_right = 0.05
-anchor_bottom = 0.126
-offset_left = 84.799995
-offset_top = 110.703995
-offset_right = 110.799995
-offset_bottom = 127.703995
-offset_transform_enabled = true
-theme = ExtResource("4_lquwl")
-theme_override_font_sizes/font_size = 12
-text = "(1/2)"
-
 [connection signal="pressed" from="ScreenButtonsGUI/ScreenButtons/VBoxContainer/ResetButton" to="GridLayer" method="reset"]
 [connection signal="toggled" from="ScreenButtonsGUI/ScreenButtons/VBoxContainer/GOLButton" to="GridLayer" method="set_gol"]
 [connection signal="pressed" from="ScreenButtonsGUI/ScreenButtons/VBoxContainer/OptionMenuButton" to="ScreenButtonsGUI/ScreenButtons/VBoxContainer/ExitButton" method="options_pressed"]
@@ -1091,4 +1092,4 @@ text = "(1/2)"
 [connection signal="toggled" from="OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/LeftVBoxContainer/CellularAutomaton/Dead/ColorRect/GridContainer/Checkboxes/D8" to="GridLayer" method="set_gol_array" binds= ["D8"]]
 [connection signal="toggled" from="OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/RightVboxContainer/HBoxContainer/Button" to="GridLayer" method="set_view_mines"]
 [connection signal="pressed" from="OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/RightVboxContainer/HBoxContainer/Button2" to="ScreenButtonsGUI/ScreenButtons/VBoxContainer/ExitButton" method="set_default"]
-[connection signal="pressed" from="OptionsMenuGUI/Button" to="ScreenButtonsGUI/ScreenButtons/VBoxContainer/ExitButton" method="next_pressed"]
+[connection signal="pressed" from="OptionsMenuGUI/OptionsMenu/VBoxContainer/HBoxContainer/RightVboxContainer/Button" to="ScreenButtonsGUI/ScreenButtons/VBoxContainer/ExitButton" method="next_pressed"]
