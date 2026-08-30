@@ -54,7 +54,9 @@ func _ready():
 	assert(mines < rows * cols && mines >= 0 && rows > 0 && 
 		cols > 0 && rows <= 30 && cols <= 24 && mines < 667)
 	clear()
+	#set_tile_cell(Vector2i(20, -12), "F")
 	init_board()
+	
 	#init_mines()
 	#display_text(str(mines) + "/" + str(mines) + "\nMINE\nSWEEPER", -1)
 	display_text(default_text(), -1)
@@ -171,10 +173,6 @@ func _input(event: InputEvent):
 	# turns mouse click into integer/grid coords
 	var cell = local_to_map(get_local_mouse_position())
 	#print(cell)
-	
-	# Clicking flag button resets flags
-	if cell.x == 20 && cell.y == -12:
-		reset_flags()
 	
 	if !in_bounds(cell) :
 		return

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d0jry4cdfay1y" path="res://Scripts/grid.gd" id="2_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://5mkosaetjds4" path="res://FinalSprites/handmadeatlas.png" id="3_vivmo"]
+[ext_resource type="Texture2D" uid="uid://8or15ah3vs30" path="res://FinalSprites/TileFlag.png" id="3_ycdy4"]
 [ext_resource type="Script" uid="uid://c2dd2jkdroxuj" path="res://Scripts/buttons.gd" id="4_1bvp3"]
 [ext_resource type="Theme" uid="uid://b6u67bm1t6pi4" path="res://Themes/button_theme_1.tres" id="4_lquwl"]
 [ext_resource type="Theme" uid="uid://2vhcuboqm2ql" path="res://Themes/button_theme_2.tres" id="6_7mycd"]
@@ -49,13 +50,6 @@ separation = Vector2i(8, 8)
 
 [sub_resource type="TileSet" id="TileSet_mngvc"]
 sources/2 = SubResource("TileSetAtlasSource_vivmo")
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dg77c"]
-load_path = "res://.godot/imported/color_1_atlas.png-4a17004fa0efe7b953b6f11b50f1eecb.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ycdy4"]
-atlas = SubResource("CompressedTexture2D_dg77c")
-region = Rect2(4, 52, 16, 16)
 
 [node name="main" type="Node2D" unique_id=360394113]
 
@@ -113,15 +107,13 @@ layout_mode = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="ScreenButtonsGUI/ScreenButtons/VBoxContainer" unique_id=1082564860]
 layout_mode = 2
 
-[node name="TileFlag" type="Sprite2D" parent="ScreenButtonsGUI/ScreenButtons/VBoxContainer/HBoxContainer" unique_id=300592121]
-z_index = 20
-position = Vector2(11, 12)
-texture = SubResource("AtlasTexture_ycdy4")
+[node name="Button" type="Button" parent="ScreenButtonsGUI/ScreenButtons/VBoxContainer/HBoxContainer" unique_id=299721714]
+layout_mode = 2
+icon = ExtResource("3_ycdy4")
 
 [node name="MineDisplay" type="RichTextLabel" parent="ScreenButtonsGUI/ScreenButtons/VBoxContainer/HBoxContainer" unique_id=679273201]
 custom_minimum_size = Vector2(75, 25)
 layout_mode = 2
-offset_transform_enabled = true
 offset_transform_position = Vector2(24, 0)
 offset_transform_visual_only = false
 mouse_filter = 1
@@ -1081,6 +1073,7 @@ offset_top = -105.0
 offset_right = 153.0
 offset_bottom = 195.0
 
+[connection signal="pressed" from="ScreenButtonsGUI/ScreenButtons/VBoxContainer/HBoxContainer/Button" to="GridLayer" method="reset_flags"]
 [connection signal="pressed" from="ScreenButtonsGUI/ScreenButtons/VBoxContainer/ResetButton" to="GridLayer" method="reset"]
 [connection signal="toggled" from="ScreenButtonsGUI/ScreenButtons/VBoxContainer/GOLButton" to="GridLayer" method="set_gol"]
 [connection signal="pressed" from="ScreenButtonsGUI/ScreenButtons/VBoxContainer/OptionMenuButton" to="ScreenButtonsGUI/ScreenButtons/VBoxContainer/ExitButton" method="options_pressed"]
