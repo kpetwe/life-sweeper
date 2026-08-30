@@ -8,5 +8,5 @@ This project is ongoing and will likely contain many bugs.
 
 The current version of this game may be played <a href="https://kpetwe.github.io/life-sweeper/" target="_blank">here</a>.
 
-### References
+### Resources and References
 I am new to Godot. I referenced [this minesweeper tutorial](https://www.youtube.com/watch?v=LEiL4rrZbqQ) in part for importing assets and handling mouse events, so structural similarities between it and the code for the base game may be present. [This tutorial](https://www.youtube.com/watch?v=KOyREJu1P3I) is helpful for understanding how to format UI in Godot. Official documentation for this game engine can be found [here](https://docs.godotengine.org/en/stable/classes/index.html#nodes).
