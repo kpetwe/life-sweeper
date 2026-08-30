@@ -106,18 +106,35 @@ layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ScreenButtonsGUI/ScreenButtons/VBoxContainer" unique_id=1082564860]
 layout_mode = 2
+alignment = 1
 
-[node name="Button" type="Button" parent="ScreenButtonsGUI/ScreenButtons/VBoxContainer/HBoxContainer" unique_id=299721714]
+[node name="Button" type="TextureButton" parent="ScreenButtonsGUI/ScreenButtons/VBoxContainer/HBoxContainer" unique_id=804852037]
+custom_maximum_size = Vector2(16, 16)
 layout_mode = 2
-icon = ExtResource("3_ycdy4")
+size_flags_horizontal = 6
+size_flags_vertical = 4
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 2)
+offset_transform_visual_only = false
+texture_normal = ExtResource("3_ycdy4")
+texture_pressed = ExtResource("3_ycdy4")
+texture_hover = ExtResource("3_ycdy4")
+texture_disabled = ExtResource("3_ycdy4")
+texture_focused = ExtResource("3_ycdy4")
+stretch_mode = 3
 
 [node name="MineDisplay" type="RichTextLabel" parent="ScreenButtonsGUI/ScreenButtons/VBoxContainer/HBoxContainer" unique_id=679273201]
 custom_minimum_size = Vector2(75, 25)
 layout_mode = 2
-offset_transform_position = Vector2(24, 0)
+size_flags_horizontal = 6
+size_flags_vertical = 4
+offset_transform_enabled = true
+offset_transform_position = Vector2(-8, 0)
 offset_transform_visual_only = false
 mouse_filter = 1
 text = "200/200"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TextDisplay" type="RichTextLabel" parent="ScreenButtonsGUI/ScreenButtons/VBoxContainer" unique_id=1410616805]
 custom_minimum_size = Vector2(0, 50)
