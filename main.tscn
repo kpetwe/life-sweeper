@@ -114,6 +114,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="TileFlag" type="Sprite2D" parent="ScreenButtonsGUI/ScreenButtons/VBoxContainer/HBoxContainer" unique_id=300592121]
+z_index = 20
 position = Vector2(11, 12)
 texture = SubResource("AtlasTexture_ycdy4")
 
