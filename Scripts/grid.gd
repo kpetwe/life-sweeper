@@ -247,23 +247,32 @@ func display_text(disptxt: String, delay:int):
 		display_text(default_text(), -1)
 		
 
+func game_lost(cell: Vector2i):
+	game_over = true
+	display_text("GAME\nLOST", -1)
+	reveal_mines(mine_cells)
+	set_tile_cell(cell, "RM")
+
 """
 	Updates Grid display
 	@param Vector2i cell: Location of cell that was clicked
 	@param bool safe: True if it's safe to perform GOL update 
 """
 func grid_update(cell: Vector2i, safe: bool):
+	if game_over:
+		return
+	
 	# Unsafe tile hit
 	if mine_cells.has(cell):
-		game_over = true
-		display_text("GAME\nLOST", -1)
-		reveal_mines(mine_cells)
-		set_tile_cell(cell, "RM")
+		game_lost(cell)
 		return
 	
 	# Reveal neighboring tiles if enough flags placed
 	elif checked_cells.has(cell):
 		safe = neighbor_update(cell)
+		# fixes display bug on game lost
+		if game_over:
+			return
 	
 	# Safe tile hit
 	elif !checked_cells.has(cell):
@@ -346,7 +355,7 @@ func neighbor_update(cell: Vector2i):
 	@param Vector2i cell: location of cell we're revealing
 """
 func cell_update(cell: Vector2i):
-	if !in_bounds(cell) || checked_cells.has(cell):
+	if !in_bounds(cell) || checked_cells.has(cell) || game_over:
 		return
 		
 	if flagged_cells.has(cell):
@@ -373,6 +382,9 @@ func cell_update(cell: Vector2i):
 	Perform game of life updates on the board grid
 """	
 func gol_update():
+	if game_over:
+		return
+	
 	var new_mine_cells = {}
 	
 	# loops through grid an updates mines
